@@ -42,5 +42,10 @@ public class Asistente {
     @Column(name = "email",length = 200,nullable = false)
     private String email;
 
+    // ... tus otros campos ...
+
+    @ManyToOne
+    @JoinColumn(name = "id_evento") // Esto crea la llave foránea
+    private Evento idEvento; // Ojo: en la foto del profe se llama "idEvento" aunque sea un objeto
 
 }

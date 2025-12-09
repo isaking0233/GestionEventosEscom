@@ -1,6 +1,7 @@
 package com.ipn.mx.gestioneventos.core.domain;
 
 import jakarta.persistence.*;
+import java.util.List;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -62,6 +63,11 @@ public class Evento implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column(name = "fechaTermino", nullable = false)
     private Date fechaTermino;
+
+    // ... tus otros campos ...
+
+    @OneToMany(mappedBy = "idEvento", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Asistente> asistentes;
 
 }
 
